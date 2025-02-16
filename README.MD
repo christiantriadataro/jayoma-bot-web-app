@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# Jayoma Bot Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Git Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Implementing a feature
 
-## Expanding the ESLint configuration
+- [ ] git switch -c "feature/<module_name>" // creates a branch and switches to it
+#### after the implementation and you want to push the changes
+- [ ] git add . // adds all files
+- [ ] git commit -m "<commit_message>" // creates a message for it
+- [ ] git push -u origin "feature/<module-name>" // push to the feature/branch
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### Commit Guidelines
 
-- Configure the top-level `parserOptions` property like this:
+- [ ] If implementing a feature: Commit Message: feat: ✨ <commit_message>
+    + Example: feat: ✨ Added new user authentication feature
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [ ] If implementing a UI/style: Commit Message: style: 🎨 <commit_message>
+    + Example: style: 🎨 Updated button styles on the login page
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- [ ] If implementing a test: Commit Message: test: 🧪 <commit_message>
+    + Example: test: 🧪 Added unit tests for the user authentication module
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- [ ] If refactoring code: Commit Message: refactor: 🔄 <commit_message>
+    + Example: refactor: 🔄 Simplified authentication logic and removed redundant code
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [ ] If fixing a bug: Commit Message: fix: 🐛 <commit_message>
+    + Example: fix: 🐛 Resolved login issue causing incorrect error messages
+
+- [ ] If updating documentation: Commit Message: docs: 📚 <commit_message>
+    + Example: docs: 📚 Updated API documentation for new authentication endpoints
+
+- [ ] If performing a performance improvement: Commit Message: perf: ⚡ <commit_message>
+    + Example: perf: ⚡ Optimized database queries for faster user authentication
+
+- [ ] If adding or updating dependencies: Commit Message: chore: 🔧 <commit_message>
+    + Example: chore: 🔧 Upgraded dependency versions for security and performance enhancements
