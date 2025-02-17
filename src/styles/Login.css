@@ -1,0 +1,126 @@
+
+  .login-form {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    color: var(--primary-color);
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+   
+  .login-form h2 {
+    font-size: 24px; 
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    color: var(--primary-color);
+  }
+  
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .login-form button {
+    width: 50%;
+    padding: 10px;
+    display: block;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+  
+  .login-form button:hover {
+    background-color: #333; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+
+.login-form h2 {
+    margin-bottom: 30%;
+    font-size: 40px;
+    color: #333;
+    
+    
+}
+
+.login-form label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+.login-form button:hover {
+    background-color: gray;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 15px;
+}
+.forgot-password a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.horizontal-line {
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+.horizonal-line hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+.signup-prompt {
+  
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-prompt p {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.signup-link {
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup-link:hover {
+  color: #0056b3;
+}
+
