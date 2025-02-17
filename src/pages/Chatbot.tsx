@@ -1,4 +1,3 @@
-import {FormEvent, useState} from 'react';
 import '../styles/Chat.css';
 import Back from "../components/single-components/Back.tsx";
 import CustomButton from "../components/single-components/CustomButton.tsx";
@@ -9,26 +8,26 @@ interface IMessageProps {
 }
 
 const ChatBot = () => {
-    const [messages, setMessages] = useState<IMessageProps[]>([]);
-    const [inputValue, setInputValue] = useState('');
-
-    const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!inputValue.trim()) return;
-
-
-        setMessages([...messages, {text: inputValue, sender: 'user'}]);
-
-
-        setTimeout(() => {
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                {text: 'I am a bot.', sender: 'bot'},
-            ]);
-        }, 1000);
-
-        setInputValue('');
-    };
+    // const [messages, setMessages] = useState<IMessageProps[]>([]);
+    // const [inputValue, setInputValue] = useState('');
+    //
+    // const handleSendMessage = (e: FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     if (!inputValue.trim()) return;
+    //
+    //
+    //     setMessages([...messages, {text: inputValue, sender: 'user'}]);
+    //
+    //
+    //     setTimeout(() => {
+    //         setMessages((prevMessages) => [
+    //             ...prevMessages,
+    //             {text: 'I am a bot.', sender: 'bot'},
+    //         ]);
+    //     }, 1000);
+    //
+    //     setInputValue('');
+    // };
 
     return (
         <div className="relative flex flex-col px-[25px] w-full h-full items-center">
