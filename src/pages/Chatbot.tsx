@@ -2,10 +2,10 @@ import '../styles/Chat.css';
 import Back from "../components/single-components/Back.tsx";
 import CustomButton from "../components/single-components/CustomButton.tsx";
 
-interface IMessageProps {
-    text: string;
-    sender: string;
-}
+// interface IMessageProps {
+//     text: string;
+//     sender: string;
+// }
 
 const ChatBot = () => {
     // const [messages, setMessages] = useState<IMessageProps[]>([]);
