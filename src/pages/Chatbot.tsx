@@ -1,6 +1,7 @@
 import {FormEvent, useState} from 'react';
 import '../styles/Chat.css';
-import Header from "../components/layout/Header.tsx";
+import Back from "../components/single-components/Back.tsx";
+import CustomButton from "../components/single-components/CustomButton.tsx";
 
 interface IMessageProps {
     text: string;
@@ -26,36 +27,27 @@ const ChatBot = () => {
             ]);
         }, 1000);
 
-
         setInputValue('');
     };
 
     return (
-        <div>
-            <Header/>
-            <div className="chatbot-container">
-                <h2>Jayoma Chatbot</h2>
-                <div className="chatbot-messages">
-                    {messages.map((message, index) => (
-                        <div
-                            key={index}
-                            className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
-                        >
-                            {message.text}
-                        </div>
-                    ))}
+        <div className="relative flex flex-col px-[25px] w-full h-full items-center">
+            <Back cn="absolute top-15 left-10"/>
+            <div className="mb-5 mt-36 gap-10 flex flex-col justify-between items-center">
+
+                <div>
+                    <h1 className="font-urbanist text-[#757474] font-bold text-[40px] w-full text-center">Jayoma
+                        Bot</h1>
+
+                    <p className="mt-[15px]  text-[14px] text-center text-[#616161]">Start chatting with Jayoma
+                        now.
+                        You can ask me anything.</p>
                 </div>
-                <form onSubmit={handleSendMessage} className="chatbot-input-form">
-                    <input
-                        type="text"
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        placeholder="Type a message..."
-                        required
-                    />
-                    <button type="submit">Send</button>
-                </form>
+                <CustomButton text="Get Started" variant="black" cn="mt-36"/>
+
             </div>
+
+
         </div>
     );
 };
