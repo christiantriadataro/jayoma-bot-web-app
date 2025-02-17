@@ -1,6 +1,6 @@
 import '../styles/Splash.css';
-import logo from "../assets/images/Logo.png"
 import {useNavigate} from "react-router";
+import Logo from "../components/single-components/Logo.tsx";
 import {useEffect} from "react";
 
 const SplashScreen = () => {
@@ -15,15 +15,18 @@ const SplashScreen = () => {
     }, [navigate]);
 
     return (
-        <div className="splash-container">
-            <div className="splash-content">
-                <img src={logo} alt="BrainBox Logo"/>
+        // <div className="splash-container  bg-[#C9D4E7]">
+        <div className="flex flex-col h-full justify-end items-center">
+            <div className="h-4/6 flex flex-col justify-between  items-center">
+                <Logo/>
+                <div className="mb-[39px] text-center">
+                    <h1 className="font-medium text-[35px]">Jayoma Bot</h1>
+                    <h2 className="text-[#757171]">Version 1.0</h2>
+                </div>
             </div>
-            <div className="splash-footer">
-                <h1>Welcome to Jayoma Chatbot</h1>
-                <h2>Version 1.0</h2>
-            </div>
+
         </div>
+        // </div>
     );
 };
 
