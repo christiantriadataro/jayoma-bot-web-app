@@ -5,6 +5,7 @@ import Home from "../pages/Home.tsx";
 import Chatbot from "../pages/Chatbot.tsx";
 import Login from "../pages/Login.tsx";
 import Signup from "../pages/Signup.tsx";
+import WelcomeHome from "../pages/WelcomeHome.tsx";
 
 export interface IRouterTabs {
     path: string;
@@ -35,6 +36,10 @@ export const ROUTER_TABS: IRouterTabs[] = [
     {
         path: "/chatbot",
         element: <Chatbot/>,
+    },
+    {
+        path: "/welcome-home",
+        element: <WelcomeHome/>,
     },
     {
         path: "/categories",

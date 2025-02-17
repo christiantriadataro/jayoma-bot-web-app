@@ -1,17 +1,19 @@
 import DummyComponent from "../components/layout/DummyComponent.tsx";
 import {createBrowserRouter, createRoutesFromElements, Navigate, Route} from "react-router";
 import {ROUTER_TABS} from "../constants/ROUTE_TABS.tsx";
+import MainLayout from "../components/layout/MainLayout.tsx";
 
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
 
-            <Route path="/" element={<Navigate to="/splash" replace/>}/>
-            {ROUTER_TABS.map((tab, index) =>
-                <Route key={index} path={tab.path} element={tab.element}/>
-            )}
-            
+            <Route path="/" element={<MainLayout/>}>
+                <Route path="/" element={<Navigate to="/splash" replace/>}/>
+                {ROUTER_TABS.map((tab, index) =>
+                    <Route key={index} path={tab.path} element={tab.element}/>
+                )}
+            </Route>
             {/* Not Found Page */}
             <Route path="*" element={<Navigate to="/404" replace/>}/>
             <Route path="/not-found" element={<DummyComponent text="Not Found"/>}/>
