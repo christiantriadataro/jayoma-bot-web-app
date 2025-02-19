@@ -1,9 +1,13 @@
 import {RouterProvider} from "react-router";
 import router from "./routes/routeIndex.tsx";
+import ThemeProvider from "./contexts/ThemeProvider.tsx";
+
 
 const App = () => {
     return (
-        <RouterProvider router={router}/>
+        <ThemeProvider>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
     )
 }
 

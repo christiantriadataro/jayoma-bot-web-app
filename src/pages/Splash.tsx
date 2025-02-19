@@ -15,7 +15,6 @@ const SplashScreen = () => {
     }, [navigate]);
 
     return (
-        // <div className="splash-container  bg-[#C9D4E7]">
         <div className="flex flex-col h-full justify-end items-center">
             <div className="h-4/6 flex flex-col justify-between  items-center">
                 <Logo/>
@@ -24,9 +23,7 @@ const SplashScreen = () => {
                     <h2 className="text-[#757171]">Version 1.0</h2>
                 </div>
             </div>
-
         </div>
-        // </div>
     );
 };
 
