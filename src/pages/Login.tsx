@@ -27,8 +27,8 @@ const Login = () => {
                     <CustomInput placeholder="Enter Your Email"/>
                     <CustomInput type="password" placeholder="Enter Your Password"/>
                 </div>
-                <p className="mt-[15px] font-medium text-[14px] text-right text-[#323142]"
-                   onClick={handleForgotPassword}>Forgot Password?</p>
+                <p className="cursor-pointer text-[#ACADB9] mt-[15px] font-medium text-[14px] text-right text-[#323142]"
+                  onClick={handleForgotPassword}>Forgot Password?</p>
                 <CustomButton text="Login" variant="black" cn="mt-3" onClick={handleWelcomeHome}/>
                 <p className="cursor-pointer text-[#ACADB9] text-center mt-[11px]">Create New Account?<span
                     className="mt-[15px] text-[14px] text-right text-[#323142] font-bold" onClick={handleSignup}> Sign Up</span>
