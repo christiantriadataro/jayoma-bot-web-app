@@ -23,7 +23,7 @@ export const ROUTER_TABS: IRouterTabs[] = [
     },
     {
         path: "/welcome",
-        element: <DummyComponent text={"welcome"}/>,
+        element: <DummyComponent text={"welcomes"}/>,
     },
     {
         path: "/register",
