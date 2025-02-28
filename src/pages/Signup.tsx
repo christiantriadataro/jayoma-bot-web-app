@@ -1,7 +1,7 @@
 import "../styles/Signup.css"
-import Back from "../components/single-components/Back.tsx";
-import CustomInput from "../components/single-components/CustomInput.tsx";
-import CustomButton from "../components/single-components/CustomButton.tsx";
+import Back from "../components/shared/Back.tsx";
+import CustomInput from "../components/shared/CustomInput.tsx";
+import CustomButton from "../components/shared/CustomButton.tsx";
 import {useNavigate} from "react-router";
 
 const Signup = () => {

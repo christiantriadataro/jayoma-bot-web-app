@@ -1,12 +1,11 @@
-import {useContext} from 'react';
-import {ThemeContext} from '../contexts/ThemeContext.ts';
 import "../../styles/Footer.css"
+import useToggleTheme from "../../hooks/useToggleTheme.ts";
 
 const Footer = () => {
-    const {isDarkMode} = useContext(ThemeContext);
+    const {theme} = useToggleTheme()
 
     return (
-        <footer style={{backgroundColor: isDarkMode ? '#333' : '#f4f4f4', color: isDarkMode ? '#fff' : '#000'}}>
+        <footer style={{backgroundColor: theme ? '#333' : '#f4f4f4', color: theme ? '#fff' : '#000'}}>
             <p>&copy; 2025 Jayoma Chatbot. All rights reserved.</p>
         </footer>
 
