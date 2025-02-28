@@ -1,10 +1,9 @@
-import {ThemeContext} from '../contexts/ThemeContext.ts';
 import '../../styles/Header.css';
 import {useNavigate} from "react-router";
-import {useContext} from "react";
+import useToggleTheme from "../../hooks/useToggleTheme.ts";
 
 const Header = () => {
-    const {isDarkMode, toggleTheme} = useContext(ThemeContext);
+    const {theme, toggleTheme} = useToggleTheme()
     const navigate = useNavigate();
 
     return (
@@ -12,9 +11,9 @@ const Header = () => {
             <button onClick={() => navigate('/chatbot')} style={{marginRight: '10px'}}>
                 Try Chatbot
             </button>
-            <header style={{color: isDarkMode ? '#fff' : '#000'}}>
+            <header style={{color: theme ? '#fff' : '#000'}}>
                 <label className="switch">
-                    <input type="checkbox" checked={isDarkMode} onChange={toggleTheme}/>
+                    <input type="checkbox" checked={!!theme} onChange={toggleTheme}/>
                     <span className="slider">
             <svg className="slider-icon" viewBox="0 0 512 512">
               <path

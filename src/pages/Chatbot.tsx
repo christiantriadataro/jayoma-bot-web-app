@@ -1,6 +1,6 @@
 import '../styles/Chat.css';
-import Back from "../components/single-components/Back.tsx";
-import CustomButton from "../components/single-components/CustomButton.tsx";
+import Back from "../components/shared/Back.tsx";
+import CustomButton from "../components/shared/CustomButton.tsx";
 
 // interface IMessageProps {
 //     text: string;
