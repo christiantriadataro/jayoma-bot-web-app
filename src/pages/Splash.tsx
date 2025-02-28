@@ -1,6 +1,6 @@
 import '../styles/Splash.css';
 import {useNavigate} from "react-router";
-import Logo from "../components/single-components/Logo.tsx";
+import Logo from "../components/shared/Logo.tsx";
 import {useEffect} from "react";
 
 const SplashScreen = () => {

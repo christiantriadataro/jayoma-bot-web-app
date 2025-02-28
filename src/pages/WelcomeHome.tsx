@@ -1,14 +1,11 @@
 import '../styles/Login.css';
 import {useNavigate} from "react-router";
-import Back from "../components/single-components/Back.tsx";
-import CustomButton from "../components/single-components/CustomButton.tsx";
-import HomeActiveIcon from "../assets/svg/HomeActiveIcon.svg"
-import CategoryIcon from '../assets/svg/CategoryIcon.svg'
-import UserProfile from "../assets/svg/UserProfile.svg"
-import UserPromptIcon from "../assets/svg/UserPromptIcon.svg"
-import Logo from "../components/single-components/Logo.tsx";
+import Back from "../components/shared/Back.tsx";
+import CustomButton from "../components/shared/CustomButton.tsx";
+import Logo from "../components/shared/Logo.tsx";
+import Navbar from "../components/navbar/Navbar.tsx";
 
-const Login = () => {
+const WelcomeHome = () => {
     const navigate = useNavigate();
 
 
@@ -16,24 +13,11 @@ const Login = () => {
         navigate("/chatbot")
     }
 
-    
+
     return (
         <div className="relative flex flex-col px-[25px] w-full h-full items-center">
             <Back cn="absolute top-15 left-10"/>
-            <div className="absolute bottom-0 flex flex-row h-[87px] w-full border border-[#DADADA]">
-                <div className="w-full h-full flex justify-center items-center">
-                    <img src={HomeActiveIcon} alt=""/>
-                </div>
-                <div className="w-full h-full flex justify-center items-center">
-                    <img src={CategoryIcon} alt=""/>
-                </div>
-                <div className="w-full h-full flex justify-center items-center">
-                    <img src={UserProfile} alt=""/>
-                </div>
-                <div className="w-full h-full flex justify-center items-center">
-                    <img src={UserPromptIcon} alt=""/>
-                </div>
-            </div>
+            <Navbar/>
             <div className="mb-5 mt-36 gap-10 flex flex-col justify-between items-center">
                 <Logo/>
                 <div>
@@ -52,4 +36,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default WelcomeHome;
