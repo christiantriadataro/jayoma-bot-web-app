@@ -6,6 +6,10 @@ import Chatbot from "../pages/Chatbot.tsx";
 import Login from "../pages/Login.tsx";
 import Signup from "../pages/Signup.tsx";
 import WelcomeHome from "../pages/WelcomeHome.tsx";
+import Profile from "../pages/Profile.tsx";
+import ForgotPassword from "../pages/ForgotPassword.tsx";
+import ChatHistory from "../pages/ChatHistory.tsx";
+import Categories from "../pages/Categories.tsx";
 
 export interface IRouterTabs {
     path: string;
@@ -43,14 +47,18 @@ export const ROUTER_TABS: IRouterTabs[] = [
     },
     {
         path: "/categories",
-        element: <DummyComponent text={"categories"}/>,
+        element: <Categories/>,
     },
     {
         path: "/profile",
-        element: <DummyComponent text={"profile"}/>,
+        element: <Profile/>
     },
     {
         path: "/forgot-password",
-        element: <DummyComponent text={"forgot-password"}/>,
+        element: <ForgotPassword/>,
     },
+    {
+        path: "/Chat-history",
+        element: <ChatHistory/>
+    }
 ]
