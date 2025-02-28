@@ -12,7 +12,7 @@ function NavbarIcon({icon, path}: {icon: string, path: string}) {
     }
     
     return (
-        <div className="cursor-pointer text-[#ACADB9] tw-full h-full flex justify-center items-center bg-white" onClick={handleClick}>
+        <div className="cursor-pointer text-[#ACADB9] tw-full h-full w-full flex justify-center items-center bg-white" onClick={handleClick}>
                     <img src={icon} alt=""/>
                 </div>
     )
