@@ -3,7 +3,7 @@ import {useNavigate} from "react-router";
 import Back from "../components/shared/Back.tsx";
 import CustomButton from "../components/shared/CustomButton.tsx";
 import Logo from "../components/shared/Logo.tsx";
-import Navbar from "../components/navbar/Navbar.tsx";
+import Navbar from "../components/shared/Navbar.tsx";
 
 const WelcomeHome = () => {
     const navigate = useNavigate();
@@ -27,8 +27,8 @@ const WelcomeHome = () => {
                         now.
                         You can ask me anything.</p>
                 </div>
-                <CustomButton text="Get Started" variant="black" cn="mt-36" onClick={handleChatBot}/>
-
+                
+                <CustomButton text="Get Started" variant="black" cn="mt-5 cursor-pointer" onClick={handleChatBot} />
             </div>
 
 
