@@ -28,7 +28,7 @@ const WelcomeHome = () => {
                         You can ask me anything.</p>
                 </div>
                 
-                <CustomButton text="Get Started" variant="black" cn="mt-5 cursor-pointer" onClick={handleChatBot} />
+                <CustomButton text="Get Started" variant="black" cn="mt-6 cursor-pointer" onClick={handleChatBot} />
             </div>
 
 
