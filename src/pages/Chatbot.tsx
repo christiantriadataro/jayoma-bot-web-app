@@ -1,6 +1,6 @@
-import '../styles/Chat.css';
-import {FormEvent, useState} from "react";
-import Back from "../components/shared/Back.tsx";
+  import '../styles/Chat.css';
+  import { useState, FormEvent } from "react";
+  import Back from "../components/shared/Back.tsx";
 
 
 interface IMessageProps {
@@ -30,15 +30,7 @@ const ChatBot = () => {
         }, 1000);
     };
 
-    const handlePredefinedQuestionClick = (question: string) => {
-        addMessage(question, "user");
-        setHasStartedChat(true);
-
-        setTimeout(() => {
-            addMessage("This is a response to your question.", "bot");
-        }, 1000);
-    };
-
+    
     const predefinedQuestions = [
         "What are the specific ordinances in place to ensure public safety in our barangay, such as curfews or regulations on public gatherings?",
         "Can you provide details on the ordinances related to the establishment and operation of businesses in our barangay?",
@@ -53,19 +45,19 @@ const ChatBot = () => {
                 <h1 className="font-urbanist font-bold text-[40px]">Jayoma Bot</h1>
             </div>
 
-            {!hasStartedChat && (
-                <div className="mt-6 flex flex-col gap-3 px-6">
-                    {predefinedQuestions.map((question, index) => (
-                        <div
-                            key={index}
-                            className="p-3 bg-gray-100 rounded-lg shadow-md text-gray-700 text-left cursor-pointer"
-                            onClick={() => handlePredefinedQuestionClick(question)}
-                        >
-                            {question}
-                        </div>
-                    ))}
-                </div>
-            )}
+        {!hasStartedChat && (
+          <div className="mt-6 flex flex-col gap-3 px-6">
+            {predefinedQuestions.map((question, index) => (
+              <div
+                key={index}
+                className="p-3 bg-gray-100 rounded-lg shadow-md text-gray-700 "
+                
+              >
+                {question}
+              </div>
+            ))}
+          </div>
+        )}
 
             <div className="flex flex-col flex-grow px-6 mt-6 overflow-y-auto max h-[60vh]">
                 {messages.map((msg, index) => (

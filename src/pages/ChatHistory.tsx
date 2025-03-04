@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
-import Navbar from "../components/navbar/Navbar.tsx";
+
+import { useState, useEffect } from "react";
 import Back from "../components/shared/Back.tsx";
+import Navbar from "../components/shared/Navbar.tsx";
 
 interface IMessage {
     text: string;
@@ -101,3 +102,4 @@ const ChatHistory = () => {
 };
 
 export default ChatHistory;
+

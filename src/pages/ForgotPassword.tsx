@@ -1,6 +1,5 @@
-import {useState} from "react";
+import { useState } from "react";
 import Back from "../components/shared/Back.tsx";
-
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");

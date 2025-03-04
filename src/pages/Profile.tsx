@@ -1,8 +1,7 @@
 import Back from "../components/shared/Back.tsx";
 import CustomInput from "../components/shared/CustomInput.tsx";
 import CustomButton from "../components/shared/CustomButton.tsx";
-import Navbar from "../components/navbar/Navbar.tsx";
-
+import Navbar from "../components/shared/Navbar.tsx";
 const Profile = () => {
     return (
         <div className="relative flex flex-col px-[25px] w-full h-full items-center">

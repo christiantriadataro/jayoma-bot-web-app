@@ -1,6 +1,6 @@
-import {useState} from "react";
-import Back from "../components/shared/Back.tsx";
-import Navbar from "../components/navbar/Navbar.tsx";
+import { useState } from "react";
+import Back from "../components/single-components/Back.tsx";
+import Navbar from "../components/single-components/Navbar.tsx";
 
 const categories = [
     {
