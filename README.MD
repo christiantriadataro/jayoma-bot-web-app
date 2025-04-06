@@ -1,5 +1,10 @@
 # Jayoma Bot Web App
 
+## Tickets 
+- [ ] JAYOMA-0004 - Profile UI
+- [ ] JAYOMA-0005 - CATEGORIES
+- [ ] JAYOMA-0006 - RESET PASSWORD
+- [ ] JAYOMA-
 
 ## Git Instructions
 

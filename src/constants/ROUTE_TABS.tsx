@@ -58,7 +58,7 @@ export const ROUTER_TABS: IRouterTabs[] = [
         element: <ForgotPassword/>,
     },
     {
-        path: "/Chat-history",
+        path: "/prompts",
         element: <ChatHistory/>
     }
 ]
