@@ -25,6 +25,17 @@
     }
 }
 
+@layer utilities {
+     .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}
+
 [data-theme="dark"] {
     --background-color: #121212;
     --text-color: #ffffff;
