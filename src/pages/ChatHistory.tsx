@@ -41,14 +41,14 @@ const ChatHistory = () => {
     }, []);
 
     return (
-        <div className="relative flex flex-col px-6 w-full h-full items-center bg-gray-100">
+        <div className="relative flex flex-col px-6 w-full h-full items-center ">
             <Back cn="absolute top-5 left-5"/>
             <h2 className="text-xl font-semibold mt-16 mb-4">Chat History</h2>
             {selectedChat ? (
                 <>
 
                     <div
-                        className="w-full flex flex-col overflow-y-auto max-h-[70vh] p-4 bg-white rounded-lg shadow-md">
+                        className="w-full flex flex-col overflow-y-auto max-h-[70vh] p-4  rounded-lg shadow-md">
                         <button
                             onClick={() => setSelectedChat(null)}
                             className="mb-4 text-blue-500 underline"

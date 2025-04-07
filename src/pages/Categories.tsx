@@ -44,6 +44,14 @@ const categories = [
             {title: "Dummy", description: "Dummy Description"},
         ],
     },
+     {
+        name: "Health And Sanitation",
+        items: [
+            {title: "Dummy", description: "Dummy Description"},
+            {title: "Dummy", description: "Dummy Description"},
+            {title: "Dummy", description: "Dummy Description"},
+        ],
+    },
 ];
 
 const filterOptions = ["Safety", "Business", "Health", "Environmental", " Public Welfare", "Services", "Zoning"];
@@ -52,9 +60,9 @@ const Categories = () => {
     const [activeFilter, setActiveFilter] = useState("All");
 
     return (
-        <div className="relative flex flex-col w-full h-full bg-white">
+        <div className="relative flex flex-col w-full h-full ">
 
-            <div className="absolute top-0 left-0 w-full bg-white z-10 shadow-md">
+            <div className="absolute top-0 left-0 w-full  z-10 shadow-md">
                 <Back cn="absolute top-6 left-6"/>
                 <h1 className="mt-10 text-center font-urbanist font-bold text-[28px]">
                     Categories

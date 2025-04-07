@@ -1,13 +1,24 @@
-import {ComponentProps} from "react";
+import {useLocation, useNavigate} from "react-router";
+import {ReactNode} from "react";
 
-type INavbarIconProps = ComponentProps<'div'> & {
-    icon: string;
+type INavbarIconProps =  {
+    icon: ReactNode;
+    path: string;
 }
 
-function NavbarIcon({icon, ...buttonProps}: INavbarIconProps) {
+function NavbarIcon({icon, path}: INavbarIconProps) {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const handleClick = () => {
+        navigate(path);
+    }
+
+
     return (
-        <div className="w-full h-full flex justify-center items-center" {...buttonProps}>
-            <img src={icon} alt=""/>
+        <div className="relative w-full h-full flex flex-col gap-2 justify-center items-center" onClick={handleClick}>
+            {icon}
+            <div className={`${path === location.pathname ? "" : "hidden"} absolute bottom-3 bg-black h-2 w-2 rounded-full`}></div>
         </div>
     )
 }
