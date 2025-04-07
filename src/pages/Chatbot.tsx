@@ -1,7 +1,7 @@
 import '../styles/Chat.css';
 import {FormEvent, useState} from "react";
 import Back from "../components/shared/Back.tsx";
-
+import SendIcon from "../assets/svg/Send.svg"
 
 interface IMessageProps {
     text: string;
@@ -47,18 +47,18 @@ const ChatBot = () => {
 
     return (
         <div className="relative flex flex-col w-full h-full bg-[#f8f8f8]">
-            <Back cn="absolute top-6 left-6"/>
+            <Back cn="absolute top-15 left-10"/>
 
-            <div className="mt-20 text-center">
-                <h1 className="font-urbanist font-bold text-[40px]">Jayoma Bot</h1>
-            </div>
+            <h1 className="mt-[62px] text-center text-['Poppins'] font-medium text-[22px] text-[#757474]">
+                Chat Assist
+            </h1>
 
             {!hasStartedChat && (
                 <div className="mt-6 flex flex-col gap-3 px-6">
                     {predefinedQuestions.map((question, index) => (
                         <div
                             key={index}
-                            className="p-3 bg-gray-100 rounded-lg shadow-md text-gray-700 text-left cursor-pointer"
+                            className="p-3 py-6 bg-[#F7F7F8] text-[14px] rounded-lg shadow-md text-[#A0A0A5] text-center cursor-pointer"
                             onClick={() => handlePredefinedQuestionClick(question)}
                         >
                             {question}
@@ -85,21 +85,17 @@ const ChatBot = () => {
             <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg"></div>
             <form
                 onSubmit={handleSendMessage}
-                className="p-4  shadow-lg flex items-center w-full"
+                className="relative p-4 shadow-lg flex items-center w-full"
             >
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Send a message..."
-                    className="flex-grow p-3 border-none outline-none rounded-lg bg-gray-100"
+                    className="relative text-sm flex-grow p-3 text-[#A0A0A5] outline-none rounded-lg bg-[#F7F7F8] hover:bg-white border border-[#E1E1E1]"
                 />
-                <button
-                    type="submit"
-                    className="ml-3 p-3 bg-gray-900 text-white rounded-lg"
-                >
-                    →
-                </button>
+                <img src={SendIcon} className="absolute right-4 ml-3 p-3  text-white rounded-lg" alt=""/>
+
             </form>
         </div>
     );

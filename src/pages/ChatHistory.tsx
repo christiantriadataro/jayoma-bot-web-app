@@ -42,8 +42,8 @@ const ChatHistory = () => {
 
     return (
         <div className="relative flex flex-col px-6 w-full h-full items-center ">
-            <Back cn="absolute top-5 left-5"/>
-            <h2 className="text-xl font-semibold mt-16 mb-4">Chat History</h2>
+            <Back cn="absolute top-15 left-10"/>
+             <h1 className="text-[22px] text-['Poppins'] font-medium mt-[63px]">Chat History</h1>
             {selectedChat ? (
                 <>
 
@@ -78,7 +78,7 @@ const ChatHistory = () => {
             ) : (
                 <>
                     <div
-                        className="w-full flex flex-col overflow-y-auto max-h-[70vh] p-4 bg-white rounded-lg shadow-md">
+                        className="w-full mt-[46px] flex flex-col overflow-y-auto max-h-[70vh] p-4 bg-white rounded-lg shadow-md">
                         {chatSessions.length > 0 ? (
                             chatSessions.map((session) => (
                                 <div
