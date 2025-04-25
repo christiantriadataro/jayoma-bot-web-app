@@ -1,12 +1,5 @@
 # Jayoma Bot Web App
 
-## Tickets 
-- [ ] JAYOMA-0004 - Profile UI
-- [ ] JAYOMA-0006 - RESET PASSWORD
-- [ ] JAYOMA-
-
-## Git Instructions
-
 #### Implementing a feature
 
 - [ ] git switch -c "feature/<module_name>" // creates a branch and switches to it
