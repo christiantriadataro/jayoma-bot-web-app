@@ -14,12 +14,12 @@ const Profile = () => {
             <div className="flex flex-col items-center mt-[44px]">
                 <img src={UserProfile} alt="" className="h-[112px] w-[105px]"/>
                 <div className="font-semibold text-[27px] mt-3 leading-5">Chan User</div>
-                <p className="h-fit font-medium text-[14px] text-[#323142]">chanuser@item.com</p>
+                <p className="h-fit font-medium text-[14px] text-[#323142]">chanuser+user@gmail.com</p>
             </div>
             <div className="mt-[35px] gap-4 flex flex-col w-full">
-                <CustomInput placeholder="Full Name"/>
-                <CustomInput placeholder="Email"/>
-                <CustomInput type="password" placeholder="Password"/>
+                <CustomInput value="Chan User" placeholder="Full Name"/>
+                <CustomInput value="chanuser+user@gmail.com" placeholder="Email"/>
+                <CustomInput value="************" type="password" placeholder="Password"/>
             </div>
             <CustomButton text="Save Changes" variant="black" cn="mt-5"/>
             <Navbar/>

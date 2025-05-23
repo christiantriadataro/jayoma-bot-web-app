@@ -191,14 +191,16 @@ const Categories = () => {
                             {
                                 category.items.map((ordinance, i) => (
                                     <div key={i}
-                                        className="w-[129px] h-[163px] justify-between pt-[16px] px-3 bg-[#F7F7F8] rounded-xl flex flex-col items-center">
+                                        className="w-[129px] h-[163px] justify-between py-[16px] px-3 bg-[#F7F7F8] rounded-xl flex flex-col items-center">
                                         <div className="flex flex-col items-center">
                                             <div className=" bg-black h-[28px] w-[28px] rounded-lg"></div>
                                             <div
                                                 className="mt-1.5 text-center text-['Poppins'] font-normal text-[13px]">{ordinance.title}</div>
                                             {/*<div className="text-[#A0A0A5] text-[10px]">{ordinance.description}</div>*/}
                                         </div>
-                                        <div className="h-[34px] w-[34px] rounded-full bg-[#A0A0A5]"></div>
+                                        <div className="h-[34px] w-[34px] rounded-full bg-[#A0A0A5] flex justify-center items-center">
+                                             <img src={ArrowLeftIcon} className="w-[12px] h-[12px] fill-white" alt=""/>
+                                        </div>
                                     </div>
                                 ))
                             }
