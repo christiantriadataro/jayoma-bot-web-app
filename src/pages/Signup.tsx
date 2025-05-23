@@ -22,6 +22,11 @@ const Signup = () => {
     }
 
     const navigate = useNavigate()
+
+    const switchLogin = () => {
+         navigate('/login')
+    }
+
     const handleLogin = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         try {
@@ -49,7 +54,7 @@ const Signup = () => {
                     <CustomInput name="password" onChange={handleChange} type="password" placeholder="Enter Password"/>
                 </div>
                 <CustomButton text="Register" variant="black" cn="mt-3" onClick={handleLogin}/>
-                <p className="cursor-pointer text-[#ACADB9] text-center mt-[11px]" onClick={handleLogin}>Already have an
+                <p className="cursor-pointer text-[#ACADB9] text-center mt-[11px]" onClick={switchLogin}>Already have an
                     account?<span
                         className="mt-[15px] text-[14px] text-right text-[#323142] font-bold"
                     > Login</span>
