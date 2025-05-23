@@ -3,17 +3,50 @@ import {useNavigate} from "react-router";
 import Back from "../components/shared/Back.tsx";
 import CustomInput from "../components/shared/CustomInput.tsx";
 import CustomButton from "../components/shared/CustomButton.tsx";
+import baseInstance from "../constants/baseInstance.ts";
+import {ChangeEvent, MouseEvent, useEffect, useState} from "react";
+import {AxiosError} from "axios";
 
 const Login = () => {
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    })
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setLoginData({
+            ...loginData,
+            [e.target.name]: e.target.value
+        })
+    }
     const navigate = useNavigate();
 
     const handleForgotPassword = () => {
         navigate('/forgot-password');
     };
 
-    const handleWelcomeHome = () => {
-        navigate("/welcome-home")
+    const handleWelcomeHome = async (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        try {
+            const response = await baseInstance.post("/auth/login", loginData);
+            console.log(loginData)
+            const {accessToken} = response.data;
+
+            localStorage.setItem("token", accessToken);
+
+
+            if (localStorage.getItem("token")) {
+                navigate("/welcome-home")
+            }
+        } catch (error) {
+            const axiosError = error as AxiosError;
+            console.log((axiosError.response?.data as { message?: string })?.message);
+        }
     }
+
+    useEffect(() => {
+        console.log(loginData);
+    }, [loginData]);
 
     const handleSignup = () => {
         navigate('/register');
@@ -24,8 +57,8 @@ const Login = () => {
             <div className="mb-5 mt-36">
                 <h1 className="font-semibold text-[38px]">Login Your Account</h1>
                 <div className="mt-[48px] gap-[20px] flex flex-col">
-                    <CustomInput placeholder="Enter Your Email"/>
-                    <CustomInput type="password" placeholder="Enter Your Password"/>
+                    <CustomInput name="email" onChange={handleChange} placeholder="Enter Your Email"/>
+                    <CustomInput name="password" type="password" onChange={handleChange} placeholder="Enter Your Password"/>
                 </div>
                 <p className="cursor-pointer text-[#ACADB9] mt-[15px] font-medium text-[14px] text-right text-[#323142]"
                   onClick={handleForgotPassword}>Forgot Password?</p>
