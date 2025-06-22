@@ -7,7 +7,6 @@ import MainLayout from "../components/layout/MainLayout.tsx";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-
             <Route path="/" element={<MainLayout/>}>
                 <Route path="/" element={<Navigate to="/splash" replace/>}/>
                 {ROUTER_TABS.map((tab, index) =>
