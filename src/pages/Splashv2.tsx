@@ -16,7 +16,7 @@ export default function Splashv2() {
                 return "Setting up finished!"
             },
         });
-    }, [loadingPromise, navigate]);
+    }, [navigate]);
 
     return (
         <div className="page-transition relative flex  flex-col h-full justify-center px-8 py-16 items-center">
