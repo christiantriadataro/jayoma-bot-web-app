@@ -1,17 +1,15 @@
-import logo from "../../assets/svg/Back.svg";
 import {useNavigate} from "react-router";
+import {ChevronLeft} from "lucide-react";
 
-const Logo = ({cn}: { cn?: string }) => {
+export default function Back({cn}: { cn?: string }) {
     const navigate = useNavigate()
 
     const handleBackButton = () => navigate(-1)
 
     return (
         <div onClick={handleBackButton}
-             className={`bg-white w-[40px] h-[40px] flex justify-center items-center rounded-lg shadow ${cn}`}>
-            <img src={logo} className="h-[15px] " alt="Back button"/>
+             className={` w-[40px] h-[40px] border border-primary-new-1 flex justify-center items-center rounded-lg shadow ${cn}`}>
+            <ChevronLeft className="text-primary-new-1" />
         </div>
     )
 }
-
-export default Logo

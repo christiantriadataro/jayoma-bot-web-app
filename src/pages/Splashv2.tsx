@@ -7,17 +7,16 @@ import {useNavigate} from "react-router";
 
 export default function Splashv2() {
     const navigate = useNavigate();
-    const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 1000))
-
+    const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 3000))
     useEffect(() => {
         toast.promise(loadingPromise, {
             loading: "Getting Ready...",
             success: () => {
-                setTimeout(() => navigate('/intro'), 3000)
+                setTimeout(() => navigate('/intro'), 1000)
                 return "Setting up finished!"
             },
         });
-    }, [navigate]);
+    }, [loadingPromise, navigate]);
 
     return (
         <div className="page-transition relative flex  flex-col h-full justify-center px-8 py-16 items-center">

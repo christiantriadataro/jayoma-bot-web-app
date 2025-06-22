@@ -1,15 +1,16 @@
 import {ReactNode} from "react";
-import DummyComponent from "../components/layout/DummyComponent.tsx";
-import Splash from "../pages/Splash.tsx";
-import Home from "../pages/Home.tsx";
 import Chatbot from "../pages/Chatbot.tsx";
-import Login from "../pages/Login.tsx";
-import Signup from "../pages/Signup.tsx";
 import WelcomeHome from "../pages/WelcomeHome.tsx";
 import Profile from "../pages/Profile.tsx";
 import ForgotPassword from "../pages/ForgotPassword.tsx";
 import ChatHistory from "../pages/ChatHistory.tsx";
 import Categories from "../pages/Categories.tsx";
+import HomeV2 from "../pages/Homev2.tsx";
+import Splashv2 from "../pages/Splashv2.tsx";
+import Intro from "@/pages/Intro.tsx";
+import Signupv2 from "@/pages/Signupv2.tsx";
+import Loginv2 from "@/pages/Loginv2.tsx";
+import Dashboard from "@/pages/Dashboard.tsx";
 
 export interface IRouterTabs {
     path: string;
@@ -19,23 +20,28 @@ export interface IRouterTabs {
 export const ROUTER_TABS: IRouterTabs[] = [
     {
         path: "/splash",
-        element: <Splash/>
+        element: <Splashv2/>
     },
-    {
-        path: "/welcome",
-        element: <DummyComponent text={"welcomes"}/>,
+     {
+        path: "/intro",
+        element: <Intro/>
     },
+
     {
         path: "/register",
-        element: <Signup/>,
+        element: <Signupv2/>,
     },
     {
         path: "/login",
-        element: <Login/>,
+        element: <Loginv2/>,
     },
     {
         path: "/home",
-        element: <Home/>,
+        element: <HomeV2/>,
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard/>,
     },
     {
         path: "/chatbot",

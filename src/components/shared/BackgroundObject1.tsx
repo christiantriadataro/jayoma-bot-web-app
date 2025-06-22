@@ -1,0 +1,21 @@
+import {ComponentProps} from "react";
+
+type BackgroundObjectProps = ComponentProps<'svg'> & {}
+
+export default function BackgroundObject1(props: BackgroundObjectProps) {
+    return (
+        <svg width="227" height="510" viewBox="0 0 227 510" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path
+                d="M0.0195651 121.941C-1.98043 285.141 149.853 448.274 226.02 509.441V34.4414C134.353 -7.22526 2.01957 -41.2593 0.0195651 121.941Z"
+                fill="url(#paint0_linear_1403_4601)"/>
+            <defs>
+                <linearGradient id="paint0_linear_1403_4601" x1="113.01" y1="0" x2="113.01" y2="509.441"
+                                gradientUnits="userSpaceOnUse">
+                    <stop offset="0.197115"/>
+                    <stop offset="0.8" stopColor="#3480A2"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+    )
+}

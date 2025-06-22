@@ -5,20 +5,13 @@ import {useNavigate} from "react-router";
 
 export default function Homev2() {
     const navigate = useNavigate();
-    // const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 1000))
-
-    // useEffect(() => {
-    //     toast.promise(loadingPromise, {
-    //         loading: "Getting Ready...",
-    //         success: () => {
-    //             setTimeout(() => navigate('/intro'), 3000)
-    //             return "Setting up finished!"
-    //         },
-    //     });
-    // }, [navigate]);
 
     const signupClick = () => {
-        navigate('/signup')
+        navigate('/register')
+    }
+
+    const loginClick = () => {
+        navigate('/login')
     }
 
     return (
@@ -30,9 +23,9 @@ export default function Homev2() {
                         className="text-primary-new-1">Chatbot</span></h1>
                 </div>
                 <div className="space-y-12">
-                    <div onClick={signupClick} className="bg-primary-new-1 py-3 flex justify-center items-center rounded-lg text-white">Let's Get Started</div>
+                    <div onClick={signupClick} className="bg-primary-new-1 py-3 cursor-pointer flex justify-center items-center rounded-lg text-white">Let's Get Started</div>
                     <h1 className="font-medium text-sm text-center text-white">Already have an account? <span
-                        className="text-primary-new-1">Login</span></h1>
+                        onClick={loginClick} className="text-primary-new-1 cursor-pointer">Login</span></h1>
                 </div>
             </div>
         </div>
