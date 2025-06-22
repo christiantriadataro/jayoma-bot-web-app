@@ -1,21 +1,8 @@
 import '../styles/Splash.css';
-import {useNavigate} from "react-router";
-import {toast} from "sonner";
 import UserProfile from "@/assets/images/chan-user.png"
 import {Bookmark, BrainCircuit, ChevronDown, ChevronRight, History, House, Plus, Scale, Swords} from "lucide-react";
 
 export default function Dashboard() {
-    const navigate = useNavigate();
-    const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 3000))
-    const handleClick = () => {
-        toast.promise(loadingPromise, {
-            loading: "Registering the new account...",
-            success: () => {
-                setTimeout(() => navigate('/login'), 1000)
-                return "Setting up finished!"
-            },
-        });
-    }
 
     return (
         <div className="page-transition relative flex flex-col h-full pt-16">
