@@ -1,30 +1,32 @@
 import '../styles/Splash.css';
-import {useNavigate} from "react-router";
-import Logo from "../components/shared/Logo.tsx";
+import Logov2 from "../components/shared/Logov2.tsx";
 import {useEffect} from "react";
+import {toast} from "sonner";
+import {useNavigate} from "react-router";
 
-const SplashScreen = () => {
+
+export default function Splashv2() {
     const navigate = useNavigate();
+    const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 1000))
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            navigate('/home');
-        }, 3000);
-
-        return () => clearTimeout(timer);
+        toast.promise(loadingPromise, {
+            loading: "Getting Ready...",
+            success: () => {
+                setTimeout(() => navigate('/intro'), 3000)
+                return "Setting up finished!"
+            },
+        });
     }, [navigate]);
 
     return (
-        <div className="flex flex-col h-full justify-end items-center">
-            <div className="h-4/6 flex flex-col justify-between  items-center">
-                <Logo/>
-                <div className="mb-[39px] text-center">
-                    <h1 className="font-medium text-[35px]">Jayoma Bot</h1>
-                    <h2 className="text-[#757171]">Version 1.0</h2>
-                </div>
+        <div className="page-transition relative flex  flex-col h-full justify-center px-8 py-16 items-center">
+            <div className=" flex flex-col items-center gap-6">
+                <Logov2/>
+                <h1 className="font-medium text-2xl text-white">Jayoma AI <span className="text-primary-new-1">Chatbot</span></h1>
             </div>
+
         </div>
     );
 };
 
-export default SplashScreen;
