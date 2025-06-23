@@ -108,7 +108,7 @@
     }
 
     #root {
-        @apply h-screen w-screen flex justify-center py-4 bg-[#131313];
+        @apply h-screen w-screen flex justify-center py-8 px-6 bg-[#131313];
     }
 }
 
