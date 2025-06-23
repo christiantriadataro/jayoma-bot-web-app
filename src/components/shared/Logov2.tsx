@@ -1,6 +1,10 @@
-export default function Logov2() {
+import {ComponentProps} from "react";
+
+type LogoProps = ComponentProps<'svg'> & {}
+
+export default function Logov2(props: LogoProps) {
     return (
-        <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <rect x="1" y="1" width="112" height="112" rx="37" fill="url(#paint0_linear_1403_4616)" stroke="#5769F2"
                   strokeWidth="2"/>
             <path
