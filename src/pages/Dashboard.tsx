@@ -101,7 +101,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div
-                    className="h-64 w-full px-5 pt-3 sm:pt-5 pb-2 bg-background-new-3/80 rounded-xl flex flex-col items-center">
+                    className="h-64 sm:h-52 w-full px-5 pt-3 sm:pt-5 pb-2 bg-background-new-3/80 rounded-xl flex flex-col items-center">
                     <div className="-mt-8 w-12 h-12 flex items-center justify-center bg-primary-new-1 rounded-2xl">
                         <BrainCircuit className="text-blue-950"/>
                     </div>
