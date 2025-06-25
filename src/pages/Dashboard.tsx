@@ -1,11 +1,10 @@
-import '../styles/Splash.css';
-import UserProfile from "@/assets/images/chan-user.png"
+import UserProfile from "@/assets/images/chan-user.png";
 import {Bookmark, BrainCircuit, ChevronDown, ChevronRight, History, House, Plus, Scale, Swords} from "lucide-react";
 
 export default function Dashboard() {
 
     return (
-        <div className="page-transition overflow-auto relative flex flex-col h-full pt-10 sm:pt-16">
+        <div className="page-transition overflow-hidden relative flex flex-col h-full pt-10 sm:pt-16">
             <div className="flex flex-col px-8 space-y-5">
                 <img src={UserProfile} className="w-14 h-14" alt=""/>
                 <h1 className="sm:mt-5 font-medium text-lg sm:text-xl text-white">

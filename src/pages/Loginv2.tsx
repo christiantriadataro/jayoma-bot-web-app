@@ -19,7 +19,7 @@ export default function Loginv2() {
     }
 
     return (
-        <div className="page-transition overflow-auto relative flex flex-col h-full pt-16">
+        <div className="page-transition overflow-hidden relative flex flex-col h-full pt-16">
             <div className="flex  flex-col px-8 space-y-5 ">
                 <Back/>
                 <h1 className="sm:mt-5 font-medium text-lg sm:text-2xl text-white">

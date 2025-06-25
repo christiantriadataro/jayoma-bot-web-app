@@ -11,7 +11,7 @@ export default function Intro() {
     }
 
     return (
-        <div className="page-transition overflow-y-auto relative flex flex-col justify-between h-full space-y-4 py-16 px-8">
+        <div className="page-transition overflow-hidden relative flex flex-col justify-between h-full space-y-4 py-16 px-8">
             <div className="flex space-x-2">
                 <div className="h-1 w-full bg-[#D9D9D9]"></div>
                 <div className="h-1 w-full bg-[#4D4D4E]"></div>
