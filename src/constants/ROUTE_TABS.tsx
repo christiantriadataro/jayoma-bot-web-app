@@ -1,5 +1,4 @@
 import {ReactNode} from "react";
-import Chatbot from "../pages/Chatbot.tsx";
 import WelcomeHome from "../pages/WelcomeHome.tsx";
 import Profile from "../pages/Profile.tsx";
 import ForgotPassword from "../pages/ForgotPassword.tsx";
@@ -11,6 +10,7 @@ import Intro from "@/pages/Intro.tsx";
 import Signupv2 from "@/pages/Signupv2.tsx";
 import Loginv2 from "@/pages/Loginv2.tsx";
 import Dashboard from "@/pages/Dashboard.tsx";
+import Chatbotv2 from "@/pages/Chatbotv2.tsx";
 
 export interface IRouterTabs {
     path: string;
@@ -45,7 +45,7 @@ export const ROUTER_TABS: IRouterTabs[] = [
     },
     {
         path: "/chatbot",
-        element: <Chatbot/>,
+        element: <Chatbotv2/>,
     },
     {
         path: "/welcome-home",
