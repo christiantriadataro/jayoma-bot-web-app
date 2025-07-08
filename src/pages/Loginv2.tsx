@@ -77,7 +77,7 @@ export default function Loginv2() {
                     <div className="text-primary-new-1 font-bold">Forgot Password</div>
                 </div>
                 <div onClick={handleClick}
-                     className="mt-8 bg-primary-new-1 py-3 flex font-bold justify-center items-center rounded-lg text-white">
+                     className="cursor-pointer mt-8 bg-primary-new-1 py-3 flex font-bold justify-center items-center rounded-lg text-white">
                     Login
                 </div>
             </div>
