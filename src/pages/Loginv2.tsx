@@ -4,18 +4,48 @@ import {Checkbox} from "@/components/ui/checkbox.tsx";
 
 import {useNavigate} from "react-router";
 import {toast} from "sonner";
+import baseInstance from "@/constants/baseInstance.ts";
+import {ChangeEvent, MouseEvent, useState} from "react";
 
 export default function Loginv2() {
     const navigate = useNavigate();
     const loadingPromise = new Promise<void>(resolve => setTimeout(() => resolve(), 3000))
-    const handleClick = () => {
-        toast.promise(loadingPromise, {
-            loading: "Registering the new account...",
-            success: () => {
-                setTimeout(() => navigate('/dashboard'), 1000)
-                return "Setting up finished!"
-            },
-        });
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    })
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setLoginData({
+            ...loginData,
+            [e.target.name]: e.target.value
+        })
+        console.log(loginData)
+    }
+
+
+    const handleClick = async (e: MouseEvent<HTMLDivElement>) => {
+        e.preventDefault()
+        try {
+            const response = await baseInstance.post("/auth/login",
+                {
+                    ...loginData,
+                });
+            console.log(response.data)
+
+            if (response) {
+                toast.promise(loadingPromise, {
+                    loading: "Log in the new account...",
+                    success: () => {
+                        setTimeout(() => navigate('/dashboard'), 1000)
+                        return "Account Signed!"
+                    }
+                })
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 
     return (
@@ -31,12 +61,12 @@ export default function Loginv2() {
                 className="mt-10 w-full h-full bg-background-new-4/75 py-4 sm:py-8 space-y-4 sm:space-y-5  px-4 text-[10px] sm:text-sm text-text-new-1 rounded-t-xl sm:rounded-t-2xl">
                 <div className="space-y-2 sm:space-y-4">
                     <div>Email Address</div>
-                    <input type="text" placeholder="Enter your email address"
+                    <input name="email" onChange={handleChange} type="text" placeholder="Enter your email address"
                            className="bg-background-new-3 p-4 w-full rounded-xl border border-[#525863]"/>
                 </div>
                 <div className="space-y-2 sm:space-y-4">
                     <div>Password</div>
-                    <input type="text" placeholder="Enter your password"
+                    <input  name="password" onChange={handleChange} type="password" placeholder="Enter your password"
                            className="bg-background-new-3 p-4 w-full rounded-xl border border-[#525863]"/>
                 </div>
                 <div className="mt-5 w-full flex flex-row justify-between items-center">

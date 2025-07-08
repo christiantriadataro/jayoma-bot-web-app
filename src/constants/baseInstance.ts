@@ -1,7 +1,7 @@
 import axios from "axios";
 import {BASE_URL} from "./env.ts";
 
-const baseURL = `https://${BASE_URL}`
+const baseURL = `http://${BASE_URL}`
 
 const baseInstance = axios.create({
     baseURL: baseURL,
@@ -9,7 +9,7 @@ const baseInstance = axios.create({
     headers: {
         "Content-Type": "application/json",
         "Accept": "*/*",
-        "Access-Control-Allow-Origin": "*",
+        // "Access-Control-Allow-Origin": "*",
     }
 })
 
