@@ -34,7 +34,7 @@ export default function Signupv2() {
                 });
             console.log(response.data)
 
-           if (response) {
+           if (response != null) {
                toast.promise(loadingPromise, {
                     loading: "Registering new account...",
                     success: () => {
@@ -89,7 +89,7 @@ export default function Signupv2() {
                     </div>
                 </div>
                 <div onClick={handleClick}
-                        className="mt-8 bg-primary-new-1 py-3 w-full flex font-bold justify-center items-center rounded-lg text-white">Register
+                        className="cursor-pointer mt-8 bg-primary-new-1 py-3 w-full flex font-bold justify-center items-center rounded-lg text-white">Register
                     Now
                 </div>
             </div>
