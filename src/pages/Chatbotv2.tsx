@@ -86,7 +86,7 @@ export default function Chatbotv2() {
 
         const currentMessage = message;
         setChatState({
-            chatId: null, status: undefined,
+            chatId: null, status: "active",
             messages: [{
                 from: "user",
                 message: message,
