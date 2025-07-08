@@ -1,14 +1,72 @@
 import UserProfile from "@/assets/images/chan-user.png";
-import {Bookmark, BrainCircuit, ChevronDown, ChevronRight, History, House, Plus, Scale, Swords} from "lucide-react";
+import {Bookmark, BrainCircuit, ChartColumnStackedIcon, ChevronDown, ChevronRight, Scale} from "lucide-react";
+import NavBar from "@/components/navbar/Navbar.tsx";
+import {useEffect, useState} from "react";
+import baseInstance from "@/constants/baseInstance.ts";
+import {useNavigate} from "react-router";
+
+type Ordinance = {
+    category: string,
+    confidence: string,
+    date_enacted: string,
+    fines: string
+    links: string,
+    ordinance_id: string,
+    score: string,
+    short_text: string,
+    status: string
+}
+
+type Message = {
+    from: 'user' | 'bot';
+    message: string;
+    timestamp: string;
+    results?: Ordinance[]; // Add proper type for results if needed
+}
+
+type ChatState = {
+    chatId: string | null;
+    id: string;
+    messages: Message[];
+    status: 'active' | 'closed';
+}
+
+type Categories = {
+    id: string;
+    name: string;
+}
+
 
 export default function Dashboard() {
+    const [categories, setCategories] = useState<Categories[]>([])
+    const [prompts, setPrompts] = useState<ChatState[]>([])
+    const navigate = useNavigate()
+    useEffect(() => {
+        const handleCategories = async () => {
+            const response = await baseInstance.get("/categories");
+            setCategories(response.data)
+        }
+        handleCategories()
+    }, [])
+    
+    useEffect(() => {
+        const handleResponse = async () => {
+            const response = await baseInstance.get("/prompts");
+            setPrompts(response.data)
+        }
+        handleResponse()
+    }, [])
+
+    useEffect(() => {
+        console.log(categories)
+    }, [categories]);
 
     return (
-        <div className="page-transition overflow-hidden relative flex flex-col h-full pt-10 sm:pt-16">
-            <div className="flex flex-col px-8 space-y-5">
+        <div className="page-transition overflow-hidden relative flex flex-col h-full pt-10 sm:pt-5">
+            <div className="flex flex-col px-8 space-y-1">
                 <img src={UserProfile} className="w-14 h-14" alt=""/>
                 <h1 className="sm:mt-5 font-medium text-lg sm:text-xl text-white">
-                    Hi, Chan
+                    Hi, User
                 </h1>
                 <div className="flex justify-between items-center">
                     <h1 className="text-white text-md sm:text-lg">Categories</h1>
@@ -18,87 +76,52 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="mt-18 flex h-full flex-col gap-5 justify-between w-full bg-background-new-4/80 py-8 px-4 text-sm text-text-new-1 rounded-t-2xl">
-                <div className=" -mt-24 h-[172px] grid grid-cols-2 gap-3">
-                    <div className="w-full flex flex-col justify-between rounded-xl gap-1.5 p-4 bg-background-new-3">
-                        <div className="flex justify-between">
-                            <div className="w-11 h-11 flex justify-center items-center rounded-full bg-primary-new-1">
-                                <Scale className="text-blue-950"/>
+            <div
+                className="mt-18 flex h-full flex-col gap-5 justify-between w-full bg-background-new-4/80 py-8 px-4 text-sm text-text-new-1 rounded-t-2xl">
+                <div className=" -mt-24 grid grid-cols-2 gap-3">
+                    {categories.filter((_, index) => index < 2).map((category, index) => (
+                        <div key={index}
+                            className="w-full flex flex-col justify-between rounded-xl gap-3 p-4 bg-background-new-3">
+                            <div className="flex justify-between">
+                                <div
+                                    className="w-11 h-11 flex justify-center items-center rounded-full bg-primary-new-1">
+                                    <ChartColumnStackedIcon className="text-blue-950 w-5 h-5"/>
+                                </div>
+                                <Bookmark className="mt-1 h-5 transition duration-200 hover:scale-110 text-text-new-1"/>
                             </div>
-                            <Bookmark className="mt-1 h-5 transition duration-200 hover:scale-110 text-text-new-1"/>
-                        </div>
-                        <div className="truncate text-white text-xs sm:text-sm font-medium">
-                            What is blasdfsadsfja dkafljd;sa
-                        </div>
-                        <div
-                            className="text-[10px] line-clamp-3 overflow-hidden text-ellipsis whitespace-break-spaces h-10">
-                            Generate great article with any topics you want. dfasfsda fdsafasfsa fdafdasskjfsfk;lfsf
-                            fdsf ds
-                        </div>
-                        <div className="flex justify-between items-center text-[10px]">
-                            <div>Sept. 27</div>
-                            <div>11:00 AM</div>
-                        </div>
-                    </div>
-                    <div className="w-full flex flex-col justify-between rounded-xl p-4 bg-background-new-3">
-                        <div className="flex justify-between">
-                            <div className="w-11 h-11 flex justify-center items-center rounded-full bg-primary-new-1">
-                                <Swords className="text-blue-950"/>
+                            <div className="truncate text-white text-xs sm:text-xs font-medium">
+                                {category.name}
                             </div>
-                            <Bookmark className="mt-1 h-5 transition duration-200 hover:scale-110 text-text-new-1"/>
                         </div>
-                        <div className="truncate text-white text-xs sm:text-sm font-medium">
-                            What is blasdfsadsfja dkafljd;sa
-                        </div>
-                        <div
-                            className="text-[10px] line-clamp-3 overflow-hidden text-ellipsis whitespace-break-spaces h-10">
-                            Generate great article with any topics you want. dfasfsda fdsafasfsa fdafdasskjfsfk;lfsf
-                            fdsf ds
-                        </div>
-                        <div className="flex justify-between items-center text-[10px]">
-                            <div>Sept. 27</div>
-                            <div>11:00 AM</div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
                 <div className="flex justify-between items-center">
                     <h1 className="text-white text-md sm:text-lg">Recent Prompting</h1>
                     <div className="transition duration-200 hover:translate-x-0.5 cursor-pointer flex items-center">
-                        <h1 className="font-medium text-xs text-primary-new-1">Explore All</h1>
+                        <h1 onClick={() => navigate('/history')} className="font-medium text-xs text-primary-new-1">Explore All</h1>
                         <ChevronRight className="h-4 text-primary-new-1"/>
                     </div>
                 </div>
                 <div className="relative h-[172px] space-y-2 flex flex-col">
-                    <div
-                        className="w-full grid grid-cols-5 items-center justify-between rounded-xl p-4 bg-background-new-3">
-                        <div
-                            className="w-11 h-11 col-span-1 flex justify-center items-center rounded-full bg-background-new-4">
-                            <Scale className="text-text-new-1"/>
+                    {prompts.filter((_, index) => index < 2).map((prompt, index) => (
+                        <div key={index}
+                            className="w-full grid grid-cols-5 items-center justify-between rounded-xl p-4 bg-background-new-3">
+                            <div
+                                className="w-11 h-11 col-span-1 flex justify-center items-center rounded-full bg-background-new-4">
+                                <Scale className="text-text-new-1"/>
+                            </div>
+                            <div className="flex col-span-3 flex-col justify-between h-full py-1 text-[10px]">
+                                <div className="text-xs text-white truncate">{prompt.messages[0].message}</div>
+                                <div className="truncate">{prompt.messages[1].message}</div>
+                            </div>
+                            <div className="col-span-1 justify-self-end">
+                                <ChevronRight className="h-8 text-text-new-1"/>
+                            </div>
                         </div>
-                        <div className="flex col-span-3 flex-col justify-between h-full py-1 text-[10px]">
-                            <div className="text-xs text-white">Sept. 27</div>
-                            <div>11:00 AM</div>
-                        </div>
-                        <div className="col-span-1 justify-self-end">
-                            <ChevronRight className="h-8 text-text-new-1"/>
-                        </div>
-                    </div>
-                    <div
-                        className="w-full grid grid-cols-5 items-center justify-between rounded-xl p-4 bg-background-new-3">
-                        <div
-                            className="w-11 h-11 col-span-1 flex justify-center items-center rounded-full bg-background-new-4">
-                            <Scale className="text-text-new-1"/>
-                        </div>
-                        <div className="flex col-span-3 flex-col justify-between h-full py-1 text-[10px]">
-                            <div className="text-xs text-white">Sept. 27</div>
-                            <div>11:00 AM</div>
-                        </div>
-                        <div className="col-span-1 justify-self-end">
-                            <ChevronRight className="h-8 text-text-new-1"/>
-                        </div>
-                    </div>
+                    ))}
                 </div>
-                <div className="h-52 w-full px-5 pt-3 sm:pt-5 pb-2 bg-background-new-3/80 rounded-xl flex flex-col items-center">
+                <div
+                    className="sm:h-50 h-44 sm:border w-full px-5 pt-3 sm:pt-5 pb-2 bg-background-new-3/80 rounded-xl flex flex-col items-center">
                     <div className="-mt-8 w-12 h-12 flex items-center justify-center bg-primary-new-1 rounded-2xl">
                         <BrainCircuit className="text-blue-950"/>
                     </div>
@@ -114,18 +137,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                  <nav className="self-center flex justify-between items-center px-5 rounded-4xl w-1/2 h-10 sm:h-12 gap-4 bg-background-new-3">
-                      <div>
-                          <House className="h-5 w-5 sm:h-6 sm:w-6 text-white transition duration-200 hover:scale-110"/>
-                      </div>
-                      <div
-                          className="transition duration-200 w-14 h-14 sm:h-16 sm:w-16 rounded-full bg-primary-new-1 flex items-center justify-center">
-                          <Plus className="h-5 w-5 sm:h-6 sm:w-6 text-white  hover:scale-110"/>
-                      </div>
-                      <div>
-                          <History className="h-5 w-5 sm:h-6 sm:w-6 transition duration-200 hover:scale-110"/>
-                      </div>
-                  </nav>
+                <NavBar/>
             </div>
         </div>
     );

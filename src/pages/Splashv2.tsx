@@ -19,7 +19,7 @@ export default function Splashv2() {
     }, [navigate]);
 
     return (
-        <div className="page-transition relative flex flex-col h-full justify-center px-8 py-16 items-center">
+        <div className="page-transition w-full relative flex flex-col h-full justify-center px-8 py-16 items-center">
             <div className=" flex flex-col items-center gap-6">
                 <Logov2 className="w-20 h-20 sm:w-28 sm:h-28" />
                 <h1 className="font-medium text-xl sm:text-2xl text-white">Jayoma AI <span className="text-primary-new-1">Chatbot</span></h1>
